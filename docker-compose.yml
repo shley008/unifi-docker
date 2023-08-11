@@ -1,4 +1,4 @@
-version: '2.3'
+version: '3.8'
 services:
   mongo:
     image: mongo:3.6
@@ -54,13 +54,45 @@ services:
 
 volumes:
   db:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   dbcfg:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   data:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   log:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   cert:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   init:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   dir:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   run:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
 
 networks:
   unifi:
