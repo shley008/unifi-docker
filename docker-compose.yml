@@ -26,7 +26,7 @@ services:
       - init:/unifi/init.d
       - run:/var/run/unifi
       # Mount local folder for backups and autobackups
-      - ./backup:/unifi/data/backup
+      - backup:/unifi/data/backup
     user: unifi
     sysctls:
       net.ipv4.ip_unprivileged_port_start: 0
@@ -53,6 +53,11 @@ services:
       - log:/unifi/log
 
 volumes:
+  backup:
+    driver: glusterfs
+    driver_opts:
+      subdir: 'unifi-controller'
+      volname: 'dockergfs'
   db:
     driver: glusterfs
     driver_opts:
